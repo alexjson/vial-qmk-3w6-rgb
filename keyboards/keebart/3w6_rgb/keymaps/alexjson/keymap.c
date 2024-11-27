@@ -52,16 +52,9 @@ enum layers
     _NAV,
     _NUM,
     _MSE,
+    _SWE,
 };
 
-const uint16_t PROGMEM swe_combo1[] = {KC_COMM, KC_DOT, COMBO_END};
-const uint16_t PROGMEM swe_combo2[] = {KC_DOT, KC_SLSH, COMBO_END};
-const uint16_t PROGMEM swe_combo3[] = {KC_O, KC_P, COMBO_END};
-combo_t key_combos[] = {
-    COMBO(swe_combo1, SWE_OA),
-    COMBO(swe_combo2, SWE_A),
-    COMBO(swe_combo3, SWE_O),
-};
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -77,7 +70,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         XXXXXXX, XXXXXXX,   KC_MINS,  KC_PLUS, KC_CIRC,                                KC_DLR, KC_RBRC, KC_LBRC, KC_TILD, KC_GRV,
         KC_AMPR, KC_PERC, KC_HASH, KC_AT,  KC_EXLM,                                KC_DQUO, KC_RPRN, KC_LPRN, KC_PIPE, XXXXXXX, 
         XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX, KC_ASTR,                                KC_QUOT, KC_RCBR, KC_LCBR, KC_BSLS, XXXXXXX,
-                                        XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, KC_EQUAL, XXXXXXX         
+                                        XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, KC_EQUAL, TO(_SWE) 
     ),
     [_NAV] = LAYOUT_split_3x5_3(
         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                                XXXXXXX, KC_PGDN, KC_PGUP, XXXXXXX,  KC_DEL,
@@ -96,5 +89,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                                KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R, XXXXXXX,
         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                                XXXXXXX, KC_COPY, KC_PSTE, XXXXXXX, XXXXXXX,
                                          XXXXXXX, XXXXXXX, XXXXXXX,     KC_MS_BTN1, KC_MS_BTN2, XXXXXXX
+    ),
+    [_SWE] = LAYOUT_split_3x5_3(
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                                KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                                KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, SWE_O,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                                KC_TRNS, KC_TRNS, KC_TRNS, SWE_OA, SWE_A,
+                                         KC_TRNS, KC_TRNS, KC_TRNS,     KC_TRNS, KC_TRNS, TG(_SWE) 
     ),
 };
